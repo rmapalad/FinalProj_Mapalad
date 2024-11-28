@@ -1,0 +1,384 @@
+/* FONTS */
+@import url(../css/clash-display.css);
+
+/* VARIABLES */
+:root {
+    --c-dark: #212529;
+    --c-brand: orange;
+    --c-brand-light: #6970dd;
+    --c-brand-rgb: 78, 87, 212;
+    --c-body: #727272;
+    --font-base: "ClashDisplay", sans-serif;
+    --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+    --transition: all 0.5s ease;
+}
+
+/* RESET & HELPERS */
+body {
+    font-family: var(--font-base);
+    line-height: 1.7;
+}
+
+h1, h2, h3,h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: 600;
+    color: orangered;
+}
+
+a {
+    text-decoration: none;
+    color: var(--c-brand);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--c-brand-light);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.section-padding {
+    padding-top: 140px;
+    padding-bottom: 140px;
+}
+
+.theme-shadow {
+    box-shadow: var(--box-shadow);
+}
+
+/* IMAGE ZOOM */
+.image-zoom {
+    position: relative;
+    /* overflow: hidden; */
+}
+
+.image-zoom-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.image-zoom-wrapper img{
+     transition: var(--transition);
+}
+
+.image-zoom:hover .image-zoom-wrapper img {
+    transform: scale(1.1);
+}
+
+
+/* NAVBAR */
+.navbar {
+    box-shadow: var(--box-shadow);
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: var(--c-dark);
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--c-brand);
+}
+
+
+/* BTN */
+.btn {
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 0;
+    padding: 10px 24px;
+}
+
+.btn-brand {
+    background-color: orangered;
+    border-color: var(--c-brand);
+    color: white;
+}
+
+.btn-brand:hover {
+    background-color: orange;
+    border-color: var(--c-brand-light);
+    color: white;
+}
+
+
+/* HERO */
+#hero {
+    position: relative;
+    background: url(../images/Pahiyas-Festival.jpg) no-repeat center center;
+    background-size: cover;
+    height: 100vh; /* Ensures full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Prevents content overflow */
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit; /* Reuses the background image */
+    filter: blur(25px); /* Adjust for desired blur intensity */
+    z-index: 1; /* Places the blur layer behind content */
+    transform: scale(1.1); /* Prevents edge clipping */
+}
+
+#hero .container {
+    position: relative;
+    z-index: 2; /* Keeps content above the blur */
+    color: orange; /* Ensures content visibility */
+    text-align: center;
+}
+
+
+
+
+/* SECTION TITLE */
+.section-title {
+    margin-bottom: 60px;
+}
+
+.section-title .line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--c-brand);
+    margin: 16px auto 24px auto;
+    color: orange;
+}
+
+.section-title p {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    color: orange;
+}
+
+
+/* ICONBOX */
+.iconbox {
+    width: 70px;
+    height: 70px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--c-brand-rgb), 0.1);
+    color: orange;
+    font-size: 34px;
+    flex: none;
+}
+
+/* SERVICE */
+.service {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.service::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    background: orange;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: var(--transition);
+}
+
+
+.service:hover::after {
+    width: 100%;
+    height: 100%;
+    background: orange;
+    z-index: -1;
+}
+
+.service:hover h5,
+.service:hover p {
+    color: white;
+}
+
+.service:hover .iconbox {
+    background-color: rgba(244, 161, 19, 0.2);
+    color: white;
+}
+
+/* COUNTER */
+#counter {
+    background: linear-gradient(rgba(var(--c-brand-rgb), 0.8), rgba(var(--c-brand-rgb), 0.8)), url(../images/counter.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+/* PORTFOLIO */
+.portfolio-item .iconbox {
+    background-color: var(--c-brand);
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.portfolio-item:hover .iconbox {
+    opacity: 1;
+    top: 50%;
+}
+
+/* REVIEW */
+.review small {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--c-brand);
+}
+
+.review-head {
+    position: relative;
+}
+
+.review-head::after {
+    content: "";
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    bottom: -14px;
+    background-color: white;
+    transform: rotate(45deg);
+}
+
+/* TEAM */
+.team-member-content {
+    background-color: var(--c-brand);
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    width: calc(100% - 50px);
+    transform: translateX(-50%);
+    padding: 24px;
+    transition: var(--transition);
+    opacity: 0;
+}
+
+.team-member:hover .team-member-content {
+    opacity: 1;
+    bottom: 24px;
+}
+
+/* CONTACT */
+#contact {
+    position: relative;
+    z-index: 2;
+}
+
+#contact::after {
+    content: "";
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(rgba(var(--c-brand-rgb), 0.8), rgba(var(--c-brand-rgb), 0.8)), url(../images/counter.jpg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#contact .form-control {
+    border-radius: 0;
+}
+
+#contact .form-control:focus {
+    box-shadow: none;
+    border-color: var(--c-brand);
+}
+
+/* FOOTER */
+footer {
+    background-color: orange; /* Dark background */
+}
+
+.social-icons a {
+    color: #fff;
+    margin-right: 15px;
+    font-size: 24px;
+}
+
+.social-icons a:hover {
+    color: #17a2b8; /* Change color on hover */
+}
+
+footer p {
+    color: #fff;
+    margin-bottom: 0;
+}
+
+
+.image-container img {
+    width: 100%; /* Makes the image take up the full width of its container */
+    height: auto; /* Maintains the aspect ratio */
+    max-width: 300px; /* Optional: Set a maximum width for consistency */
+    max-height: 300px; /* Optional: Set a maximum height for consistency */
+    object-fit: cover; /* Ensures the image covers the specified dimensions */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+}
+
+.slider-frame {
+    overflow: hidden;
+    height: 800px;
+    width: 1200px;
+    margin: 20px auto; /* Centers the slider horizontally */
+}
+
+
+/* slide*/
+.slider-frame {
+    overflow: hidden;
+    height: 500px; /* Adjusted height to fit new image size */
+    width: 900px; /* Adjusted width to fit new image size */
+    margin: 20px auto; /* Centers the slider horizontally */
+}
+
+/* Slide animation */
+@keyframes slide_animation {
+    0% { left: 0; } /* Starts at the first slide */
+    10% { left: 0; }
+    20% { left: -900px; } /* Moves to second slide */
+    30% { left: -900px; }
+    40% { left: -1800px; } /* Moves to third slide */
+    50% { left: -1800px; }
+    60% { left: -2700px; } /* Moves to fourth slide */
+    70% { left: -2700px; }
+    80% { left: -3600px; } /* Moves to fifth slide */
+    90% { left: -3600px; }
+    100% { left: 0; } /* Returns to first slide */
+}
+
+.slide-images {
+    width: 2700px; /* 900px (image width) * 3 images */
+    height: 500px; /* Matches the container height */
+    position: relative;
+    display: flex; /* Ensures images are aligned in a row */
+    animation: slide_animation 33s infinite alternate; /* Adjust animation duration as needed */
+}
+
+.img-container {
+    height: 500px; /* Resized height */
+    width: 900px; /* Resized width */
+    flex-shrink: 0; /* Prevents shrinking of container */
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures uniform scaling without distortion */
+}
+

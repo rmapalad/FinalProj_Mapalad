@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucban Pahiyas - Login</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url(./assets/images/Pahiyas-Festival.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .wrapper {
+            background: white;
+            border: 2px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            color: grey;
+            border-radius: 10px;
+            padding: 60px 200px;
+        }
+
+        .wrapper h1 {
+            font-size: 36px;
+            text-align: center;
+            color: #fd5901;
+            font-weight: bolder;
+            text-transform: capitalize;
+        }
+
+        .wrapper .input-box {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin: 30px 0;
+            color: orange;
+        }
+
+        .input-box input {
+            width: 100%;
+            height: 100%;
+            background: #249ea0;
+            border: none;
+            outline: none;
+            border: 2px solid white(255, 255, 255, .2);
+            border-radius: 40px;
+            font-size: 16px;
+            color: wheat;
+            padding: 20px 45px 20px 20px;
+        }
+
+        .input-box input::placeholder {
+            color: black;
+        }
+
+        .input-box i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+        }
+
+        .wrapper .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14.5px;
+            margin: -15px 0 15px;
+        }
+
+        .remember-forgot label input {
+            accent-color: orange;
+            margin-right: 3px;
+        }
+
+        .remember-forgot a {
+            color: orange;
+            text-decoration: none;
+        }
+
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
+
+        .wrapper .btn {
+            width: 100%;
+            height: 45px;
+            background: orange;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .wrapper .register_link {
+            font-size: 14.5px;
+            text-align: center;
+            margin: 20px 0 15px;
+        }
+
+        .register_link p a {
+            color: orange;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register_link p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Queries for responsiveness */
+
+        /* Mobile devices */
+        @media (max-width: 576px) {
+            body {
+                background-position: top;
+                background-size: cover;
+            }
+
+            .wrapper {
+                padding: 40px 20px;
+                max-width: 100%;
+            }
+
+            .wrapper h1 {
+                font-size: 28px;
+            }
+
+            .input-box input {
+                font-size: 14px;
+            }
+
+            .remember-forgot {
+                flex-direction: column;
+                font-size: 12px;
+                align-items: flex-start;
+            }
+
+            .remember-forgot label {
+                margin-bottom: 10px;
+            }
+
+            .wrapper .btn {
+                font-size: 14px;
+                padding: 12px 0;
+            }
+        }
+
+        /* Tablets (Portrait) */
+        @media (max-width: 768px) {
+            .wrapper {
+                padding: 50px 40px;
+            }
+
+            .wrapper h1 {
+                font-size: 32px;
+            }
+
+            .input-box input {
+                font-size: 15px;
+            }
+        }
+
+        /* Larger screens */
+        @media (min-width: 1024px) {
+            .wrapper {
+                padding: 60px 200px;
+            }
+
+            .wrapper h1 {
+                font-size: 36px;
+            }
+
+            .input-box input {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <form action="">
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+            <div class="register_link">
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector("form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            const username = document.querySelector("input[placeholder='Username']").value;
+            const password = document.querySelector("input[placeholder='Password']").value;
+
+            // Dummy credentials for validation
+            const validUsername = "FP_Mapalad";
+            const validPassword = "Password1";
+
+            if (username === validUsername && password === validPassword) {
+                alert("Login successful!");
+                window.location.href = "main.html"; // Redirect on success
+            } else {
+                showError("Invalid username or password!\nUsername: FP_Mapalad\nPassword: Password1");
+            }
+        });
+
+        function showError(message) {
+            // Display a JavaScript alert popup with the error message
+            alert(message);
+        }
+    </script>
+
+</body>
+
+</html>
